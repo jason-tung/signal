@@ -27,6 +27,7 @@ static void sig_handler(int signo){
 int main(){
     signal(SIGINT, sig_handler);
     signal(SIGUSR1, sig_handler);
+    kill(getpid(), SIGUSR1);
     while(1){
         printf("my proccess id: %d\n", getpid());
         sleep(1);
